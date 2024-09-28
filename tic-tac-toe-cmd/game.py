@@ -1,3 +1,4 @@
+from show_position import show_position
 from player_input import player_input
 from choose_first import choose_first
 from display_board import display_board
@@ -10,6 +11,7 @@ from full_board_check import full_board_check
 from players import players
 from replay import replay
 import copy
+
 
 def game():
     print("Welcome to Tic-Tac-Toe")
@@ -25,6 +27,7 @@ def game():
             game_on = True
         else:
             game_on = False
+        show_position()
         while game_on:
             if turn[-1] == '1':
                 # Player1's turn.
