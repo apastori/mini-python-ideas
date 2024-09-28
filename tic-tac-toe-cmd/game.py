@@ -9,12 +9,14 @@ from win_check import win_check
 from full_board_check import full_board_check
 from players import players
 from replay import replay
+import copy
 
 def game():
     print("Welcome to Tic-Tac-Toe")
     while True:
         the_board = [' '] * 10
         game_on = None
+        prev_the_board = copy.deepcopy(the_board)
         player1_marker, player2_marker = player_input()
         turn = choose_first()
         print(turn + ' will go first.')
@@ -26,14 +28,18 @@ def game():
         while game_on:
             if turn[-1] == '1':
                 # Player1's turn.
+                print("Player1 Turn")
                 display_board(the_board)
                 position = player_choice(the_board)
                 # prev display message
-                show_prev_board(prev_board(the_board, position))
+                prev_the_board = prev_board(prev_the_board, position)
+                show_prev_board(prev_the_board)
                 keep_choice = input("Want to insert mark in position with $? Enter Yes (y) or No (n)")
                 if not keep_choice.lower().startswith('y'):
+                    prev_the_board = copy.deepcopy(the_board)
                     continue
                 the_board = place_marker(the_board, player1_marker, position)
+                prev_the_board = copy.deepcopy(the_board)
                 if win_check(the_board, player1_marker):
                     display_board(the_board)
                     print('Congratulations! You have won the game!')
@@ -47,14 +53,18 @@ def game():
                         turn = players[1]
             elif (turn[-1] == '2'):
                 # Player2's turn
+                print("Player2 Turn")
                 display_board(the_board)
                 position = player_choice(the_board)
                 # prev display message
-                show_prev_board(prev_board(the_board, position))
+                prev_the_board = prev_board(prev_the_board, position)
+                show_prev_board(prev_the_board)
                 keep_choice = input("Want to insert mark in position with $? Enter Yes (y) or No (n)")
                 if not keep_choice.lower().startswith('y'):
+                    prev_the_board = copy.deepcopy(the_board)
                     continue
                 the_board = place_marker(the_board, player2_marker, position)
+                prev_the_board = copy.deepcopy(the_board)
                 if win_check(the_board, player2_marker):
                     display_board(the_board)
                     print('Player 2 has won!')
