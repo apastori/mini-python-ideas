@@ -11,7 +11,7 @@ class Player:
         # We'll imagine index -1 as the bottom of the deck
         return self.all_cards.pop(0)
     
-    def add_card(self, new_cards):
+    def add_cards(self, new_cards):
         # new_cards can be a single card
         # or a list of cards
         if type(new_cards) == type([]):
