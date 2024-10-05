@@ -5,5 +5,6 @@ class Card:
         self.suit = suit
         self.rank = rank
         self.value = ranks_values[rank]
+        
     def __str__(self):
-        return self.rank + 'Of ' + self.suit
+        return self.rank + ' Of ' + self.suit

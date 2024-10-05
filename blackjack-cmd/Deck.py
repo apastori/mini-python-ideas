@@ -12,6 +12,7 @@ class Deck:
                 new_card = Card(suit, rank)
                 self.all_cards.append(new_card)
                 self.deck.append(new_card)
+                
     def __str__(self):
         deck_str = ''
         for card in self.deck:
@@ -19,7 +20,7 @@ class Deck:
         return 'The deck has:' + deck_str            
 
     def shuffle(self):
-        random.shuffle(self.all_cards)
+        random.shuffle(self.deck)
     
     def deal_one(self):
-        return self.all_cards.pop()
+        return self.deck.pop()
