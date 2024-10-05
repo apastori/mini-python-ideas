@@ -7,3 +7,4 @@ So far it containes:
 #### Small replace list with user-input
 
 #### Tic-Tac-Toe console
+#### War Game console
