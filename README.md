@@ -8,3 +8,4 @@ So far it containes:
 
 #### Tic-Tac-Toe console
 #### War Game console
+#### BlackJack console
